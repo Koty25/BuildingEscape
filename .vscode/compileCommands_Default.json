@@ -1,0 +1,57 @@
+[
+    {
+        "file": "C:\\\\Unreal\\\\BuildingEscape\\\\Source\\\\BuildingEscape\\\\BuildingEscape.Build.cs",
+        "command": "\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\bin\\HostX64\\x64\\cl.exe\" @\"C:\\Unreal\\BuildingEscape\\.vscode\\compileCommands_Default\\BuildingEscape.210.rsp\"",
+        "directory": "C:\\Program Files\\Epic Games\\UE_4.27\\Engine\\Source"
+    },
+    {
+        "file": "C:\\\\Unreal\\\\BuildingEscape\\\\Source\\\\BuildingEscape\\\\BuildingEscape.cpp",
+        "command": "\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\bin\\HostX64\\x64\\cl.exe\" @\"C:\\Unreal\\BuildingEscape\\.vscode\\compileCommands_Default\\BuildingEscape.210.rsp\"",
+        "directory": "C:\\Program Files\\Epic Games\\UE_4.27\\Engine\\Source"
+    },
+    {
+        "file": "C:\\\\Unreal\\\\BuildingEscape\\\\Source\\\\BuildingEscape\\\\BuildingEscape.h",
+        "command": "\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\bin\\HostX64\\x64\\cl.exe\" @\"C:\\Unreal\\BuildingEscape\\.vscode\\compileCommands_Default\\BuildingEscape.210.rsp\"",
+        "directory": "C:\\Program Files\\Epic Games\\UE_4.27\\Engine\\Source"
+    },
+    {
+        "file": "C:\\\\Unreal\\\\BuildingEscape\\\\Source\\\\BuildingEscape\\\\BuildingEscapeGameModeBase.cpp",
+        "command": "\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\bin\\HostX64\\x64\\cl.exe\" @\"C:\\Unreal\\BuildingEscape\\.vscode\\compileCommands_Default\\BuildingEscape.210.rsp\"",
+        "directory": "C:\\Program Files\\Epic Games\\UE_4.27\\Engine\\Source"
+    },
+    {
+        "file": "C:\\\\Unreal\\\\BuildingEscape\\\\Source\\\\BuildingEscape\\\\BuildingEscapeGameModeBase.h",
+        "command": "\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\bin\\HostX64\\x64\\cl.exe\" @\"C:\\Unreal\\BuildingEscape\\.vscode\\compileCommands_Default\\BuildingEscape.210.rsp\"",
+        "directory": "C:\\Program Files\\Epic Games\\UE_4.27\\Engine\\Source"
+    },
+    {
+        "file": "C:\\\\Unreal\\\\BuildingEscape\\\\Source\\\\BuildingEscape\\\\Grabber.cpp",
+        "command": "\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\bin\\HostX64\\x64\\cl.exe\" @\"C:\\Unreal\\BuildingEscape\\.vscode\\compileCommands_Default\\BuildingEscape.210.rsp\"",
+        "directory": "C:\\Program Files\\Epic Games\\UE_4.27\\Engine\\Source"
+    },
+    {
+        "file": "C:\\\\Unreal\\\\BuildingEscape\\\\Source\\\\BuildingEscape\\\\Grabber.h",
+        "command": "\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\bin\\HostX64\\x64\\cl.exe\" @\"C:\\Unreal\\BuildingEscape\\.vscode\\compileCommands_Default\\BuildingEscape.210.rsp\"",
+        "directory": "C:\\Program Files\\Epic Games\\UE_4.27\\Engine\\Source"
+    },
+    {
+        "file": "C:\\\\Unreal\\\\BuildingEscape\\\\Source\\\\BuildingEscape\\\\OpenDoor.cpp",
+        "command": "\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\bin\\HostX64\\x64\\cl.exe\" @\"C:\\Unreal\\BuildingEscape\\.vscode\\compileCommands_Default\\BuildingEscape.210.rsp\"",
+        "directory": "C:\\Program Files\\Epic Games\\UE_4.27\\Engine\\Source"
+    },
+    {
+        "file": "C:\\\\Unreal\\\\BuildingEscape\\\\Source\\\\BuildingEscape\\\\OpenDoor.h",
+        "command": "\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\bin\\HostX64\\x64\\cl.exe\" @\"C:\\Unreal\\BuildingEscape\\.vscode\\compileCommands_Default\\BuildingEscape.210.rsp\"",
+        "directory": "C:\\Program Files\\Epic Games\\UE_4.27\\Engine\\Source"
+    },
+    {
+        "file": "C:\\\\Unreal\\\\BuildingEscape\\\\Source\\\\BuildingEscape\\\\WorldPosition.cpp",
+        "command": "\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\bin\\HostX64\\x64\\cl.exe\" @\"C:\\Unreal\\BuildingEscape\\.vscode\\compileCommands_Default\\BuildingEscape.210.rsp\"",
+        "directory": "C:\\Program Files\\Epic Games\\UE_4.27\\Engine\\Source"
+    },
+    {
+        "file": "C:\\\\Unreal\\\\BuildingEscape\\\\Source\\\\BuildingEscape\\\\WorldPosition.h",
+        "command": "\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\bin\\HostX64\\x64\\cl.exe\" @\"C:\\Unreal\\BuildingEscape\\.vscode\\compileCommands_Default\\BuildingEscape.210.rsp\"",
+        "directory": "C:\\Program Files\\Epic Games\\UE_4.27\\Engine\\Source"
+    }
+]

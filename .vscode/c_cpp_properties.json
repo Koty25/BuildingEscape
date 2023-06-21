@@ -1,0 +1,19 @@
+{
+    "configurations": [
+        {
+            "name": "BuildingEscapeEditor Editor Win64 Development (BuildingEscape)",
+            "intelliSenseMode": "msvc-x64",
+            "compileCommands": "C:\\Unreal\\BuildingEscape\\.vscode\\compileCommands_BuildingEscape.json",
+            "compilerPath": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\bin\\HostX64\\x64\\cl.exe",
+            "cppStandard": "c++14"
+        },
+        {
+            "name": "Win32",
+            "intelliSenseMode": "msvc-x64",
+            "compileCommands": "C:\\Unreal\\BuildingEscape\\.vscode\\compileCommands_Default.json",
+            "compilerPath": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\bin\\HostX64\\x64\\cl.exe",
+            "cppStandard": "c++14"
+        }
+    ],
+    "version": 4
+}
