@@ -36,4 +36,5 @@ private:
 	void SetupInputComponent();
 
 	FHitResult GetFirstPhysicsBodyInReach();
+	FVector PlayerMaximumReach();
 };
