@@ -41,11 +41,7 @@ void UGrabber::SetupInputComponent()
 void UGrabber::FindPhysicsHandle()
 {
 	PhysicsHandle = GetOwner()->FindComponentByClass<UPhysicsHandleComponent>();
-	if (PhysicsHandle)
-	{
-		//Physics handle is found.
-	}
-	else
+	if (PhysicsHandle == nullptr)
 	{
 		UE_LOG(LogTemp, Error, TEXT("Physics Handle component is not a part of %s!"), *GetOwner()->GetName()); //Error, no Physics Handle component on the Actor.
 	}
@@ -54,8 +50,6 @@ void UGrabber::FindPhysicsHandle()
 // Grab action function.
 void UGrabber::Grab()
 {
-	UE_LOG(LogTemp, Warning, TEXT("Grabber Pressed"));
-
 	FHitResult HitResult = GetFirstPhysicsBodyInReach();
 
 	FVector LineTraceEnd = PlayerMaximumReach(); // Vector of how far a Player may Grab an object.
@@ -71,10 +65,7 @@ void UGrabber::Grab()
 // Release action function.
 void UGrabber::Release()
 {
-	UE_LOG(LogTemp, Warning, TEXT("Grabber Relesead"));
-
 	PhysicsHandle->ReleaseComponent();
-
 }
 
 
@@ -83,11 +74,9 @@ void UGrabber::TickComponent(float DeltaTime, ELevelTick TickType, FActorCompone
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
-	FVector LineTraceEnd = PlayerMaximumReach(); // Vector of how far a Player may Grab an object.
-
 	if (PhysicsHandle->GrabbedComponent)
 	{
-		PhysicsHandle->SetTargetLocation(LineTraceEnd); // Set the object location at the farthest point a Player can reach.
+		PhysicsHandle->SetTargetLocation(PlayerMaximumReach()); // Set the object location at the farthest point a Player can reach.
 	}
 	
 
@@ -96,26 +85,12 @@ void UGrabber::TickComponent(float DeltaTime, ELevelTick TickType, FActorCompone
 // Get the Physics Body that is in Reach of the Player. Returns FHitResult.
 FHitResult UGrabber::GetFirstPhysicsBodyInReach()
 {
-	FVector PlayerViewPointLocation;
-	FRotator PlayerViewPointRotation;
 	FHitResult Hit;
-
-	GetWorld()->GetFirstPlayerController()->GetPlayerViewPoint(OUT PlayerViewPointLocation, OUT PlayerViewPointRotation);
-	
-	FVector LineTraceEnd = PlayerViewPointLocation + PlayerViewPointRotation.Vector() * Reach;
 	
 	FCollisionQueryParams TraceParams(FName(TEXT("")), false, GetOwner()); // Set up Collision parameters.
-	GetWorld()->LineTraceSingleByObjectType(OUT Hit, PlayerViewPointLocation, LineTraceEnd, FCollisionObjectQueryParams(ECollisionChannel::ECC_PhysicsBody), TraceParams);
-
-	AActor* ActorHit = Hit.GetActor();
-
-	if (ActorHit)
-	{
-		UE_LOG(LogTemp, Warning, TEXT("%s Actor is hit!"), *(ActorHit->GetName()));
-	}
+	GetWorld()->LineTraceSingleByObjectType(OUT Hit, PlayerWorldPosition(), PlayerMaximumReach(), FCollisionObjectQueryParams(ECollisionChannel::ECC_PhysicsBody), TraceParams);
 	
 	return Hit;
-
 }
 
 // The Player maximum reach. Returns an FVector.
@@ -129,4 +104,14 @@ FVector UGrabber::PlayerMaximumReach()
 	FVector LineTraceEnd = PlayerViewPointLocation + PlayerViewPointRotation.Vector() * Reach; // Vector of how far a Player may Grab an object.
 
 	return LineTraceEnd;
+}
+
+FVector UGrabber::PlayerWorldPosition()
+{
+	FVector PlayerViewPointLocation;
+	FRotator PlayerViewPointRotation;
+
+	GetWorld()->GetFirstPlayerController()->GetPlayerViewPoint(OUT PlayerViewPointLocation, OUT PlayerViewPointRotation);
+
+	return PlayerViewPointLocation;
 }

@@ -37,4 +37,5 @@ private:
 
 	FHitResult GetFirstPhysicsBodyInReach();
 	FVector PlayerMaximumReach();
+	FVector PlayerWorldPosition();
 };
