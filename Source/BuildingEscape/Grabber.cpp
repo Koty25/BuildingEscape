@@ -41,7 +41,7 @@ void UGrabber::SetupInputComponent()
 void UGrabber::FindPhysicsHandle()
 {
 	PhysicsHandle = GetOwner()->FindComponentByClass<UPhysicsHandleComponent>();
-	if (PhysicsHandle == nullptr)
+	if (!PhysicsHandle)
 	{
 		UE_LOG(LogTemp, Error, TEXT("Physics Handle component is not a part of %s!"), *GetOwner()->GetName()); //Error, no Physics Handle component on the Actor.
 	}
@@ -58,6 +58,11 @@ void UGrabber::Grab()
 
 	if (HitResult.GetActor())
 	{
+		if (!PhysicsHandle)
+		{
+			UE_LOG(LogTemp, Error, TEXT("Physics Handle component is not a part of %s!"), *GetOwner()->GetName()); //Error, no Physics Handle component on the Actor.
+			return;
+		}
 		PhysicsHandle->GrabComponentAtLocation(ComponentToGrab, NAME_None, LineTraceEnd); // Grab action.
 	}
 }
@@ -65,6 +70,11 @@ void UGrabber::Grab()
 // Release action function.
 void UGrabber::Release()
 {
+	if (!PhysicsHandle)
+	{
+		UE_LOG(LogTemp, Error, TEXT("Physics Handle component is not a part of %s!"), *GetOwner()->GetName()); //Error, no Physics Handle component on the Actor.
+		return;
+	}
 	PhysicsHandle->ReleaseComponent();
 }
 
@@ -73,6 +83,12 @@ void UGrabber::Release()
 void UGrabber::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
+
+	if (!PhysicsHandle)
+	{
+		UE_LOG(LogTemp, Error, TEXT("Physics Handle component is not a part of %s!"), *GetOwner()->GetName()); //Error, no Physics Handle component on the Actor.
+		return;
+	}
 
 	if (PhysicsHandle->GrabbedComponent)
 	{
@@ -89,7 +105,7 @@ FHitResult UGrabber::GetFirstPhysicsBodyInReach()
 	
 	FCollisionQueryParams TraceParams(FName(TEXT("")), false, GetOwner()); // Set up Collision parameters.
 	GetWorld()->LineTraceSingleByObjectType(OUT Hit, PlayerWorldPosition(), PlayerMaximumReach(), FCollisionObjectQueryParams(ECollisionChannel::ECC_PhysicsBody), TraceParams);
-	
+
 	return Hit;
 }
 

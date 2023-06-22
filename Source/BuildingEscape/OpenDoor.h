@@ -26,6 +26,12 @@ public:
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 	void OpenDoor(float DeltaTime);
 	void CloseDoor(float DeltaTime);
+	float TotalMassActor();
+	void FindAudioComponent();
+	void FindPressurePlate();
+
+	bool OpenDoorSound = true;
+	bool CloseDoorSound = false;
 
 private:
 
@@ -43,9 +49,10 @@ private:
 	UPROPERTY(EditAnywhere)
 	float DoorCloseDelay = 1.f;
 	UPROPERTY(EditAnywhere)
-	ATriggerVolume* PressurePlate;
+	float TotalMassToOpenDoor = 50.f;
 	UPROPERTY(EditAnywhere)
-	AActor* ActorThatOpensDoor;
-
-		
+	ATriggerVolume* PressurePlate = nullptr;	
+	
+	UPROPERTY()	
+	UAudioComponent* AudioComponent = nullptr;
 };
