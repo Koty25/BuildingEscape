@@ -39,6 +39,7 @@ void UOpenDoor::BeginPlay()
 	FindAudioComponent();
 }
 
+// Find Audio Component
 void UOpenDoor::FindAudioComponent()
 {
 	AudioComponent = GetOwner()->FindComponentByClass<UAudioComponent>();
@@ -50,11 +51,12 @@ void UOpenDoor::FindAudioComponent()
 	
 }
 
+// Find Pressure Plate
 void UOpenDoor::FindPressurePlate()
 {
 	if(!PressurePlate)
 	{
-		UE_LOG(LogTemp, Error, TEXT("%s has the door component on it, but no PressurePlate set!"), *GetOwner()->GetName())
+		UE_LOG(LogTemp, Error, TEXT("%s has the door component on it, but no PressurePlate set!"), *GetOwner()->GetName()) // Error, no Pressure Plate selected on the Blueprint.
 	}	
 }
 
@@ -64,13 +66,13 @@ void UOpenDoor::TickComponent(float DeltaTime, ELevelTick TickType, FActorCompon
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
-	if (TotalMassActor() > TotalMassToOpenDoor)
+	if (TotalMassActor() > TotalMassToOpenDoor)  // Check to open door
 	{
 		OpenDoor(DeltaTime);
 
 		DoorLastOpen = GetWorld()->GetTimeSeconds();
 	}
-	else
+	else // Closes door if not enough mass
 	{
 		if (GetWorld()->GetTimeSeconds() - DoorLastOpen > DoorCloseDelay)
 		{
@@ -80,11 +82,13 @@ void UOpenDoor::TickComponent(float DeltaTime, ELevelTick TickType, FActorCompon
 	}
 }
 
+// Opens the door
 void UOpenDoor::OpenDoor(float DeltaTime)
 {
 	CurrentRotation = GetOwner()->GetActorRotation();
-	
-	DoorOpening.Yaw = FMath::Lerp(CurrentRotation.Yaw, TargetYawRotation, DeltaTime * DoorOpeningSpeedMultiplier);
+
+	// Linear interpolation to open the door in a set amount of time and with decelerating feeling
+	DoorOpening.Yaw = FMath::Lerp(CurrentRotation.Yaw, TargetYawRotation, DeltaTime * DoorOpeningSpeedMultiplier); 
 
 	GetOwner()->SetActorRotation(DoorOpening);
 
